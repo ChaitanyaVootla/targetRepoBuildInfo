@@ -5,6 +5,12 @@ resources:
       sourceArtifactory: s_artifactory
       buildName: helmbuild
       buildNumber: 1
+  - name: S_HelmDeploy_BuildInfo2
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: s_artifactory
+      buildName: helmbuild
+      buildNumber: 1
   - name: S_HelmDeploy_BuildInfo_0017_resource_git
     type: GitRepo
     configuration:
@@ -25,3 +31,15 @@ pipelines:
           inputResources:
             - name: S_HelmDeploy_BuildInfo_0017_resource
             - name: S_HelmDeploy_BuildInfo_0017_resource_git
+      - name: PromoteBuild
+        type: PromoteBuild
+        configuration:
+          targetRepository:      chaitanya/vootla
+          inputResources:
+            - name: S_HelmDeploy_BuildInfo_0017_resource
+          outputResources:
+            - name: S_HelmDeploy_BuildInfo2
+ 
+        execution:
+          onStart:
+            - echo "Preparing for work..."
