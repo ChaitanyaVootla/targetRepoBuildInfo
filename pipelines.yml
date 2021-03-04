@@ -38,7 +38,7 @@ pipelines:
           inputResources:
             - name: S_HelmDeploy_BuildInfo_0017_resource
           outputResources:
-            - name: S_HelmDeploy_BuildInfo2
+            - name: S_HelmDeploy_BuildInfo_0017_resource
  
         execution:
           onStart:
