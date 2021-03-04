@@ -5,6 +5,11 @@ resources:
       sourceArtifactory: s_artifactory
       buildName: helmbuild
       buildNumber: 1
+  - name: S_HelmDeploy_BuildInfo_0017_resource_git
+    type: GitRepo
+    configuration:
+      gitProvider: gitResource
+      path: ChaitanyaVootla/ymlTest
 pipelines:
   - name: pipeline_S_HelmDeploy_0017
     steps:
